@@ -15,8 +15,7 @@ class DBServer < Sinatra::Base
   end
 
   get '/set' do
-    string_to_add = request.query_string
-    @string = string_to_add
+    @string = request.query_string
     erb :'/result'
   end
 
