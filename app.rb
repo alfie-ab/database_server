@@ -8,7 +8,7 @@ class DBServer < Sinatra::Base
     'Hello DBServer'
   end
 
-  get '/set' do
+  get '/set*' do
     @data = Hash.new
     session[:pair] = @data.merge!(params)
   end
