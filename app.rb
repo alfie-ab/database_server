@@ -4,19 +4,19 @@ class DBServer < Sinatra::Base
 
   enable :sessions
 
-  @data = {}
-
   get '/' do
-    "Hello"
+    'Hello DBServer'
   end
 
   get '/set' do
-    @data.store(:key, params)
+    @data = Hash.new
+    session[:pair] = @data.merge!(params)
   end
 
   get '/get' do
+    @current_pair = session[:pair]
     key = params[:key]
-    @data[:key]
+    @current_pair[key]
   end
 
   run! if app_file == $0
