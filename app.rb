@@ -4,21 +4,20 @@ class DBServer < Sinatra::Base
 
   enable :sessions
 
-  get '/' do
-    erb :'/set'
-  end
+  @data = {}
 
-  post '/set' do
-    session[:key] = params[:key]
-    session[:value] = params[:value]
-    redirect '/set'
+  get '/' do
+    "Hello"
   end
 
   get '/set' do
-    @string = request.query_string
-    erb :'/result'
+    @data.store(:key, params)
   end
 
-  # start the server if ruby file executed directly
+  get '/get' do
+    key = params[:key]
+    @data[:key]
+  end
+
   run! if app_file == $0
 end

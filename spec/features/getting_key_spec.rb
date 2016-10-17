@@ -7,5 +7,5 @@ feature 'getting a key to a value' do
     visit '/get?key=alfie'
     expect(page).to have_content("Your value is 22")
   end
-
+  
 end
