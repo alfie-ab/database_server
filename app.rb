@@ -1,6 +1,7 @@
 require 'sinatra/base'
 
 class DBServer < Sinatra::Base
+
   get '/' do
     'Hello DBServer!'
   end
